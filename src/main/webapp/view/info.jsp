@@ -12,24 +12,29 @@
     <title>Title</title>
 </head>
 <body>
-<form action="/customer" method="post">
+<form action="/customers/edit" method="post">
     <fieldset>
         <legend>Customer Information</legend>
-        <input type="hidden" name="id" value="${customer.id}">
+        <input type="number" name="id" value="${customer.id}">
         <table>
             <tr>
                 <td>
-                    <input type="text" value="${customer.name}">
+                    <input type="text" value="${customer.name}" name="name">
                 </td>
             </tr>
             <tr>
                 <td>
-                    <input type="text" value="${customer.email}">
+                    <input type="text" value="${customer.email}" name="email">
                 </td>
             </tr>
             <tr>
                 <td>
-                    <input type="text" value="${customer.address}">
+                    <input type="text" value="${customer.address}" name="address">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="number" value="${customer.quantity}" name="quantity">
                 </td>
             </tr>
             <tr>

@@ -11,11 +11,11 @@ public class CustomerDAO implements ICustomerDAO {
     private static int autoIncreaseId = 1;
 
     static {
-        customers.add(new Customer(autoIncreaseId++, "T", "t@codegym.vn", "Da Nang"));
-        customers.add(new Customer(autoIncreaseId++, "Nhat", "nhat@codegym.vn", "Quang Tri"));
-        customers.add(new Customer(autoIncreaseId++, "Trang", "trang@codegym.vn", "Ha Noi"));
-        customers.add(new Customer(autoIncreaseId++, "Nguyen Binh Son", "son@codegym.vn", "Sai Gon"));
-        customers.add(new Customer(autoIncreaseId++, "Vu Tuan Anh", "anhvt@codegym.vn", "Ha Noi"));
+        customers.add(new Customer(autoIncreaseId++, "T", "t@codegym.vn", "Da Nang", 10));
+        customers.add(new Customer(autoIncreaseId++, "Nhat", "nhat@codegym.vn", "Quang Tri", 20));
+        customers.add(new Customer(autoIncreaseId++, "Trang", "trang@codegym.vn", "Ha Noi", 30));
+        customers.add(new Customer(autoIncreaseId++, "Nguyen Binh Son", "son@codegym.vn", "Sai Gon", 40));
+        customers.add(new Customer(autoIncreaseId++, "Vu Tuan Anh", "anhvt@codegym.vn", "Ha Noi", 50));
     }
 
     @Override
@@ -26,7 +26,7 @@ public class CustomerDAO implements ICustomerDAO {
     @Override
     public Customer findOne(int id) {
 //        Customer customer = new Customer();
-        for (Customer c: customers) {
+        for (Customer c : customers) {
             if (c.getId() == id) {
                 return c;
             }
@@ -45,14 +45,20 @@ public class CustomerDAO implements ICustomerDAO {
     }
 
     @Override
-    public Customer remove(Customer customer) {
-        return null;
+    public void remove(int id) {
+        Customer customerRemove =findOne(id);
+        customers.remove(customerRemove);
     }
 
     @Override
-    public Customer edit(Customer customer) {
-        return null;
+    public void edit(Customer customer) {
+        Customer newCustomer = findOne(customer.getId());
+        newCustomer.setName(customer.getName());
+        newCustomer.setEmail(customer.getEmail());
+        newCustomer.setAddress(customer.getAddress());
+        newCustomer.setQuantity(customer.getQuantity());
     }
+
 
     @Override
     public int count() {

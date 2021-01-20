@@ -5,8 +5,17 @@ public class Customer {
     private String name;
     private String email;
     private String address;
+    private int quantity;
 
     public Customer() {
+    }
+
+    public Customer(int id, String name, String email, String address, int quantity) {
+        this.id = id;
+        this.name = name;
+        this.email = email;
+        this.address = address;
+        this.quantity = quantity;
     }
 
     public Customer(int id, String name, String email, String address) {
@@ -22,6 +31,14 @@ public class Customer {
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    public int getQuantity() {
+        return quantity;
+    }
+
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
     }
 
     public String getName() {

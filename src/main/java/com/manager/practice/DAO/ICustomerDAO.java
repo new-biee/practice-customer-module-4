@@ -14,9 +14,9 @@ public interface ICustomerDAO {
 
     List<Customer> save(List<Customer> customers);
 
-    Customer remove(Customer customer);
+    void remove(int id);
 
-    Customer edit(Customer customer);
+    void edit (Customer customer);
 
     int count();
 

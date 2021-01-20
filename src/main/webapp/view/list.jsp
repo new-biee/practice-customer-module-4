@@ -23,6 +23,7 @@
         <th>Name</th>
         <th>Email</th>
         <th>Address</th>
+        <th>Quantity</th>
     </tr>
     </thead>
     <tbody>
@@ -39,6 +40,19 @@
             </td>
             <td>
                 <c:out value="${customer.address}"/>
+            </td>
+            <td>
+                <c:out value="${customer.quantity}"/>
+            </td>
+            <td>
+                    <%--                <form action="/customers/remove/${customer.id}" method="post">--%>
+                    <%--                    <input type="submit" value="Remove">--%>
+                    <%--                </form>--%>
+
+                <form action="/customers/remove" method="post">
+                    <input type="hidden" value="${customer.id}" name="id">
+                    <input type="submit" value="Remove">
+                </form>
             </td>
         </tr>
     </c:forEach>
